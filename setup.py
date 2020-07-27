@@ -25,6 +25,11 @@ setup(
     ],
     keywords='''SIU''',
     packages=find_packages(exclude=['docs', 'tests*']),
-    install_requires=[],
+    install_requires=[
+        'pyexcel>=-0.5.15',
+        'pyexcel-xls>=0.5.8',
+        'pyexcel-xlsx>=0.5.8',
+        'python-slugify>=1.2.6',
+    ],
     include_package_data=True,
 )
