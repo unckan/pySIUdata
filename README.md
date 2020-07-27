@@ -1,5 +1,4 @@
-
-**En desarrollo**
+[![Build Status](https://travis-ci.org/avdata99/pySIUdata.svg?branch=master)](https://travis-ci.org/avdata99/pySIUdata)
 
 # py SIU data
 Obtener datos de sistemas SIU
