@@ -13,13 +13,14 @@ logger = logging.getLogger(__name__)
 class SIUTranspQueryFile:
     """ Cada uno de los archivos para consultar al portal de transparencia. """
 
-    def __init__(self, path, params={}, timeout=5):
+    def __init__(self, portal, path, params={}, timeout=5):
         """ inicializar un archivo de consulta al portal de transparencia
             Params:
                 path (str): Path al archivo de consulta
                 params (dict): Parámetros de la consulta, se consiguen en 
                     general en la funcion open pero podrían inicializarse aquí
                 """
+        self.portal = portal
         self.path = path
         self.params = params
         self.timeout = timeout
@@ -173,9 +174,9 @@ class SIUTranspQueryFile:
         name = query['name']
         logger.info('Request data from Query File {}'.format(name))
         
-        base_url = self.harvest_source.source.url
-        username = self.harvest_source.source_config.get('username')
-        password = self.harvest_source.source_config.get('password')
+        base_url = self.portal.base_url
+        username = self.portal.username
+        password = self.portal.password
         params = query['params']
         
         p = self.get_request_uid(params)

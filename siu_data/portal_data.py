@@ -63,7 +63,7 @@ class SIUPoratlTransparenciaData:
         
         for qf in self.query_files:
             logger.info('Gather SIU Transp FILE {}'.format(qf))
-            stqf = SIUTranspQueryFile(path=qf)
+            stqf = SIUTranspQueryFile(portal=self, path=qf)
             # open to read query params
             query_metadata = stqf.open()
 
