@@ -30,9 +30,6 @@ class PortalDeTransparenciaSIU:
                 data or None
                 """
         
-        name = query['name']
-        logger.info('Request data from Query File {}, anio: {}'.format(name, anio))
-        
         # revisar los iterables y actualizar a lo que corresponda
         try:
             resp = requests.post(self.url,
@@ -47,7 +44,7 @@ class PortalDeTransparenciaSIU:
         try:
             data = resp.json()
         except Exception, e:
-            error = 'JSON error. Response: {}\n\tURL: {}\n\tParams: {}\n\tError: {}'.format(resp.text, base_url, params, e)
+            error = 'JSON error. Response: {}\n\tURL: {}\n\tParams: {}\n\tError: {}'.format(resp.text, self.url, params, e)
             logger.error(error)
             self.errors.append(error)
             return None
