@@ -1,5 +1,6 @@
 import os
 from siu_data.portal_data import SIUPoratlTransparenciaData
+from siu_data.query_file import SIUTranspQueryFile
 
 
 class TestBasic:
@@ -21,6 +22,9 @@ class TestBasic:
                     tqf += 1
         
         cls.total_query_files = tqf
+        cls.results_folder_path = 'results'
+        if not os.path.isdir(cls.results_folder_path):
+            os.makedirs(cls.results_folder_path)
 
     @classmethod
     def teardown_class(cls):
@@ -33,3 +37,18 @@ class TestBasic:
     def test_load_all(self):
         self.siudata.load_all_data()
         assert len(self.siudata.query_files), self.total_query_files
+
+    def test_request_all(self):
+        report = [] 
+        for qf in self.siudata.query_files:
+            stqf = SIUTranspQueryFile(portal=self.siudata, path=qf)
+            # open to read query params
+            stqf.open()
+            # request all data
+            stqf.request_all(results_folder_path=self.results_folder_path)
+            for err in stqf.errors:
+                print(err)
+
+            report += stqf.requests
+            for dataset in stqf.datasets:
+                print('Dataset {}'.format(dataset['name']))

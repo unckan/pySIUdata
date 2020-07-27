@@ -1,2 +1,3 @@
 pytest>=4.6.11
 twine>=1.15
+pytest-vcr
