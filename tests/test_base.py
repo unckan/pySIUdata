@@ -42,6 +42,8 @@ class TestBasic:
     @pytest.mark.vcr()
     def test_request_all(self):
         report = [] 
+        errores = 0
+        datasets_ok = 0
         for qf in self.siudata.query_files:
             stqf = SIUTranspQueryFile(portal=self.siudata, path=qf)
             # open to read query params
@@ -49,8 +51,13 @@ class TestBasic:
             # request all data
             stqf.request_all(results_folder_path=self.results_folder_path)
             for err in stqf.errors:
+                errores += 1
                 print(err)
 
             report += stqf.requests
             for dataset in stqf.datasets:
+                datasets_ok += 1
                 print('Dataset {}'.format(dataset['name']))
+
+        assert errores == 27
+        assert datasets_ok == 207
