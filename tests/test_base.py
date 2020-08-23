@@ -1,4 +1,5 @@
 import os
+import pytest
 from siu_data.portal_data import SIUPoratlTransparenciaData
 from siu_data.query_file import SIUTranspQueryFile
 
@@ -38,6 +39,7 @@ class TestBasic:
         self.siudata.load_all_data()
         assert len(self.siudata.query_files), self.total_query_files
 
+    @pytest.mark.vcr()
     def test_request_all(self):
         report = [] 
         for qf in self.siudata.query_files:

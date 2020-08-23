@@ -23,3 +23,9 @@ s = SIUPoratlTransparenciaData(base_url='http://wichi.siu.edu.ar/pentaho/plugin/
 s.load_all_data()
 s.save_metadata('lala.csv')
 ```
+
+## Tests
+
+```
+python -m pytest
+```
