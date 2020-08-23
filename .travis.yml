@@ -10,12 +10,12 @@ install:
 before_script:
   - flake8 siu_data --count --select=E9,F63,F7,F82 --show-source --statistics
 script:
-  - python -m pytest -s
+  - python -m pytest -s --vcr-record=none
 deploy:
     provider: pypi
     username: "$PYPI_USER"
     password: "$PYPI_PASSWORD"
     distributions: "sdist bdist_wheel"
     on:
-        branch: master
+        tags: true
         python: 2.7
