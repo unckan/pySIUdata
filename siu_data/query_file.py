@@ -193,7 +193,7 @@ class SIUTranspQueryFile:
         try:
             data = resp.json()
         except Exception, e:
-            error = '{} JSON error. \n\tResponse: {}\n\tError: {}'.format(p, resp.text, e)
+            error = '{} JSON error. Error: {} Response: {}'.format(p, e, resp.text[:20])
             logger.error(error)
             self.errors.append(error)
             self.requests.append('{} ERROR JSON'.format(p))

@@ -52,12 +52,25 @@ class TestBasic:
             stqf.request_all(results_folder_path=self.results_folder_path)
             for err in stqf.errors:
                 errores += 1
-                print(err)
+                # print(err)
 
             report += stqf.requests
             for dataset in stqf.datasets:
                 datasets_ok += 1
-                print('Dataset {}'.format(dataset['name']))
+                # print('Dataset {}'.format(dataset['name']))
 
-        assert errores == 27
-        assert datasets_ok == 207
+        expected_datasets = 207
+        expected_errors = 27
+
+        if expected_datasets != datasets_ok:
+            print('Fail counting datasets')
+            
+        if expected_errors != errores:
+            print('Fail counting errors')
+
+        if expected_datasets != datasets_ok or expected_errors != errores:
+            print(report)
+        
+        assert datasets_ok == expected_datasets
+        assert errores == expected_errors
+        
