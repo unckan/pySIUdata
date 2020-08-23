@@ -3,6 +3,7 @@
 [![GitHub Issues](https://img.shields.io/github/issues/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/issues)
 [![GitHub PR](https://img.shields.io/github/issues-pr/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/pulls)
 [![Licence](https://img.shields.io/github/license/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/blob/master/LICENSE)
+[![PyPi version](https://img.shields.io/pypi/v/siu-data)](https://pypi.org/project/siu-data/)
 [![Pypi py version](https://img.shields.io/pypi/pyversions/siu-data)](https://pypi.org/project/siu-data/)
 [![Last Commit](https://img.shields.io/github/last-commit/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/commits/master)
 
