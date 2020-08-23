@@ -6,7 +6,6 @@ before_install:
 install:
   - pip install -r requirements.txt
   - pip install -r dev-requirements.txt
-  - pip install flake8
 before_script:
   - flake8 siu_data --count --select=E9,F63,F7,F82 --show-source --statistics
 script:
