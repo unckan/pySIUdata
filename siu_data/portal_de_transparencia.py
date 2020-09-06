@@ -9,6 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 class PortalDeTransparenciaSIU:
+    """ metadatos del portal de transparencia en general """
     
     def __init__(self, url, username, password):
         self.url = url
@@ -17,6 +18,7 @@ class PortalDeTransparenciaSIU:
         self.errors = []
 
     def get_fecha_actualizacion(self):
+        # TODO es posible hacer una consulta para despues usar como metadato en todo lo cosechado
         pass
 
     def request(self, params={}):
