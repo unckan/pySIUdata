@@ -43,23 +43,29 @@ class TestBasic:
         report = [] 
         errores = 0
         datasets_ok = 0
-        for qf in self.siudata.query_files:
+        query_files = sorted(self.siudata.query_files)
+        for qf in query_files:
+            report.append('Query File: {}'.format(qf))
             stqf = SIUTranspQueryFile(portal=self.siudata, path=qf)
             # open to read query params
             stqf.open()
             # request all data
             stqf.request_all(results_folder_path=self.results_folder_path)
+            report.append(' - ERRORS: {}'.format(len(stqf.errors)))
             for err in stqf.errors:
                 errores += 1
-                print('Error: {}'.format(err))
+                # print('Error: {}'.format(err))
+                report.append('   - ERR: {}'.format(err[:30]))
 
-            report += stqf.requests
+            # report += stqf.requests
+            report.append(' - DATASETS: {}'.format(len(stqf.datasets)))
             for dataset in stqf.datasets:
                 datasets_ok += 1
-                print('Dataset {}'.format(dataset['name']))
+                # print('Dataset {}'.format(dataset['name']))
+                report.append('   - OK: {}'.format(dataset['name']))
 
-        expected_datasets = 201
-        expected_errors = 27
+        expected_datasets = 176
+        expected_errors = 26
 
         if expected_datasets != datasets_ok:
             print('Fail counting datasets')
@@ -67,8 +73,7 @@ class TestBasic:
         if expected_errors != errores:
             print('Fail counting errors')
 
-        if expected_datasets != datasets_ok or expected_errors != errores:
-            print(report)
+        print('\n'.join(report))
         
         assert datasets_ok == expected_datasets
         assert errores == expected_errors
