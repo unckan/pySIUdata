@@ -37,7 +37,7 @@ class PortalDeTransparenciaSIU:
             resp = requests.post(self.url,
                                  auth=(self.username, self.password),
                                  data=params) 
-        except Exception, e:
+        except Exception as e:
             error = 'Request error \n\tURL: {}\n\tParams: {}\n\tError: {}'.format(self.url, params, e)
             logger.error(error)
             self.errors.append(error)
@@ -45,7 +45,7 @@ class PortalDeTransparenciaSIU:
         
         try:
             data = resp.json()
-        except Exception, e:
+        except Exception as e:
             error = 'JSON error. Response: {}\n\tURL: {}\n\tParams: {}\n\tError: {}'.format(resp.text, self.url, params, e)
             logger.error(error)
             self.errors.append(error)

@@ -33,14 +33,14 @@ class SIUTranspQueryFile:
         logger.info('Opening Query File {}'.format(self.path))
         try:
             f = open(self.path, 'r')
-        except Exception, e:
+        except Exception as e:
             error = 'Error abriendo el archivo {}: {}'.format(self.path, e)
             logger.error(error)
             self.errors.append(error)
             return None
         try:
             query = json.load(f)
-        except Exception, e:
+        except Exception as e:
             error = 'Error parseando a JSON el archivo {}: {}'.format(self.path, e)
             logger.error(error)
             self.errors.append(error)
@@ -183,7 +183,7 @@ class SIUTranspQueryFile:
         logger.info('Request URL {}, PARAMS: {}'.format(base_url, params))        
         try:
             resp = requests.post(base_url, auth=(username, password), data=params, timeout=self.timeout)  #, headers=headers)
-        except Exception, e:
+        except Exception as e:
             error = '{} Error en request para obtener datos. Error: {}'.format(p, e)
             logger.error(error)
             self.errors.append(error)
@@ -192,7 +192,7 @@ class SIUTranspQueryFile:
         
         try:
             data = resp.json()
-        except Exception, e:
+        except Exception as e:
             error = '{} JSON error. Error: {} Response: {}'.format(p, e, resp.text[:20])
             logger.error(error)
             self.errors.append(error)
