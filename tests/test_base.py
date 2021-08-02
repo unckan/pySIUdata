@@ -58,8 +58,8 @@ class TestBasic:
                 datasets_ok += 1
                 print('Dataset {}'.format(dataset['name']))
 
-        expected_datasets = 156
-        expected_errors = 25
+        expected_datasets = 201
+        expected_errors = 27
 
         if expected_datasets != datasets_ok:
             print('Fail counting datasets')
