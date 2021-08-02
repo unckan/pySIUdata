@@ -83,28 +83,28 @@ class SIUPoratlTransparenciaData:
             cda_path = query_metadata['params']['path']
             cda = cda_path.split('/')[-1]
             row = {
-                u'CDA': cda,
-                u'path CDA': cda_path,
-                u'Data Access ID': data_access_id,
-                u'nombre': query_name,
-                u'titulo': query_metadata['title'],
-                u'descripcion': query_metadata['notes'],
-                u'observaciones internas': query_metadata['internals'],
-                u'nombre sublista': sublist_name,
-                u'ayuda sublista': sublist_help,
-                u'tag 1': tags5[0],
-                u'tag 2': tags5[1],
-                u'tag 3': tags5[2],
-                u'tag 4': tags5[3],
-                u'tag 5': tags5[4]
+                'CDA': cda,
+                'path CDA': cda_path,
+                'Data Access ID': data_access_id,
+                'nombre': query_name,
+                'titulo': query_metadata['title'],
+                'descripcion': query_metadata['notes'],
+                'observaciones internas': query_metadata['internals'],
+                'nombre sublista': sublist_name,
+                'ayuda sublista': sublist_help,
+                'tag 1': tags5[0],
+                'tag 2': tags5[1],
+                'tag 3': tags5[2],
+                'tag 4': tags5[3],
+                'tag 5': tags5[4]
             }
             rows.append(row)
         
         # escribir a disco
-        field_names = [u'titulo', u'CDA', u'Data Access ID', u'nombre', u'descripcion', 
-                       u'tag 1', u'tag 2', u'tag 3', u'tag 4', u'tag 5', 
-                       u'nombre sublista', u'ayuda sublista',
-                       u'observaciones internas', u'path CDA']
+        field_names = ['titulo', 'CDA', 'Data Access ID', 'nombre', 'descripcion', 
+                       'tag 1', 'tag 2', 'tag 3', 'tag 4', 'tag 5', 
+                       'nombre sublista', 'ayuda sublista',
+                       'observaciones internas', 'path CDA']
         
         f = open(path, 'w')
         wr = csv.DictWriter(f, fieldnames=field_names)
@@ -114,8 +114,6 @@ class SIUPoratlTransparenciaData:
         for row in rows:
             row_utf8 = {}
             for field, value in row.items():
-                if isinstance(value, basestring):
-                    value = value.encode('utf-8')
                 row_utf8[field] = value
             wr.writerow(row_utf8)
             rows_utf8.append(row_utf8)

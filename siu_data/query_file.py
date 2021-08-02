@@ -282,12 +282,11 @@ class SIUTranspQueryFile:
         logger.info('JSON to CSV {}'.format(save_path))
         metadata = data['metadata']
         field_names = [md['colName'] for md in metadata]
-        field_names_utf8 = [fn.encode('utf-8') for fn in field_names]
         rows = data['resultset']
 
         if save_path is not None:
             f = open(save_path, 'w')
-            wr = csv.DictWriter(f, fieldnames=field_names_utf8)
+            wr = csv.DictWriter(f, fieldnames=field_names)
             wr.writeheader()
 
             rows_utf8 = []
@@ -295,22 +294,19 @@ class SIUTranspQueryFile:
                 row_utf8 = {}
                 c = 0
                 for field in row:
-                    if isinstance(field, basestring):
-                        field = field.encode('utf-8')
-                    row_utf8[field_names_utf8[c]] = field
+                    row_utf8[field_names[c]] = field
                     c += 1
                 wr.writerow(row_utf8)
                 rows_utf8.append(row_utf8)
             f.close()
 
-        return field_names_utf8, rows_utf8
+        return field_names, rows_utf8
 
     def json_to_xls(self, data, save_path=None):
         """ transformar los datos JSON a CSV """
         logger.info('JSON to XLS {}'.format(save_path))
         metadata = data['metadata']
         field_names = [md['colName'] for md in metadata]
-        field_names_utf8 = [fn.encode('utf-8') for fn in field_names]
         rows = data['resultset']
 
         results = []
@@ -318,18 +314,18 @@ class SIUTranspQueryFile:
             row_utf8 = {}
             c = 0
             for field in row:
-                if isinstance(field, basestring):
-                    field = field.encode('utf-8')
-                row_utf8[field_names_utf8[c]] = field
+                row_utf8[field_names[c]] = field
                 c += 1
             results.append(row_utf8)
             
         if save_path is not None:
-            pyexcel.save_as(records=results,
-                            dest_file_name=save_path,
-                            dest_encoding="UTF-8")
+            pyexcel.save_as(
+                records=results,
+                dest_file_name=save_path,
+                dest_encoding="UTF-8"
+            )
 
-        return field_names_utf8, results 
+        return field_names, results 
     
     def build_tags(self, tags):
         return [{'name': tag} for tag in tags] 

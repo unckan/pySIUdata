@@ -51,15 +51,15 @@ class TestBasic:
             stqf.request_all(results_folder_path=self.results_folder_path)
             for err in stqf.errors:
                 errores += 1
-                # print(err)
+                print('Error: {}'.format(err))
 
             report += stqf.requests
             for dataset in stqf.datasets:
                 datasets_ok += 1
-                # print('Dataset {}'.format(dataset['name']))
+                print('Dataset {}'.format(dataset['name']))
 
-        expected_datasets = 155 # 207 locally it's 207 (?)
-        expected_errors = 25  # 27 locally it's different (?)
+        expected_datasets = 156
+        expected_errors = 25
 
         if expected_datasets != datasets_ok:
             print('Fail counting datasets')
