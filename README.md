@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/avdata99/pySIUdata.svg?branch=master)](https://travis-ci.org/avdata99/pySIUdata)
+![Build Status](https://github.com/avdata99/pySIUdata/actions/workflows/test.yml/badge.svg)
 [![GitHub All Releases](https://img.shields.io/github/downloads/avdata99/pySIUdata/total)](https://github.com/avdata99/pySIUdata/releases)
 [![GitHub Issues](https://img.shields.io/github/issues/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/issues)
 [![GitHub PR](https://img.shields.io/github/issues-pr/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/pulls)
