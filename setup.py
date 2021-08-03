@@ -1,15 +1,14 @@
-# -*- coding: utf-8 -*-
 from setuptools import setup, find_packages  # Always prefer setuptools over distutils
 from codecs import open  # To use a consistent encoding
 from os import path
 
 here = path.abspath(path.dirname(__file__))
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+with open(path.join(here, 'README.md')) as f:
     long_description = f.read()
 
 setup(
     name='''siu-data''',
-    version='0.3.4',
+    version='0.3.5',
     description='''SIU data''',
     long_description=long_description,
     long_description_content_type='text/markdown', 

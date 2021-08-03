@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import csv
 import json
 import logging
@@ -66,8 +65,8 @@ class SIUTranspQueryFile:
             if self.data_is_empty(data):
                 logger.info('Dataset vacío: {}'.format(self.params['name']))
                 return
-            title = self.params['title'].encode('utf-8')
-            notes = self.params['notes'].encode('utf-8')
+            title = self.params['title']
+            notes = self.params['notes']
                     
             full = {
                 'name': self.params['name'],
@@ -119,8 +118,6 @@ class SIUTranspQueryFile:
             value = elem[0]
             if type(value) in [int, float]:
                 value = str(value)
-            else:
-                value = value.encode('utf-8')
             logger.info('Buscando datos para la sublista: {}'.format(value))
             # ahora estoy listo para la cosecha de los datos
             # cada valor obtenido debe pasarse al campo definido en 'apply_to'
@@ -132,8 +129,8 @@ class SIUTranspQueryFile:
                 logger.info('Dataset vacío: {} {}'.format(name, value))
                 continue
             logger.info('Datos obtenidos para: {}'.format(value))
-            title = self.params['title'].encode('utf-8')
-            notes = self.params['notes'].encode('utf-8')
+            title = self.params['title']
+            notes = self.params['notes']
             
             # TODO analizar como transformar algunos valores no válidos 
             # para ser usados como nombres
