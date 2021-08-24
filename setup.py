@@ -8,11 +8,11 @@ with open(path.join(here, 'README.md')) as f:
 
 setup(
     name='''siu-data''',
-    version='0.3.6',
+    version='0.3.7',
     description='''SIU data''',
     long_description=long_description,
     long_description_content_type='text/markdown', 
-    url='https://github.com/avdata99/pySIUdata',
+    url='https://github.com/unckan/pySIUdata',
     author='''Andres Vazquez''',
     author_email='''andres@data99.com.ar''',
     license='MIT',

@@ -1,11 +1,11 @@
-![Build Status](https://github.com/avdata99/pySIUdata/actions/workflows/test.yml/badge.svg)
-[![GitHub All Releases](https://img.shields.io/github/downloads/avdata99/pySIUdata/total)](https://github.com/avdata99/pySIUdata/releases)
-[![GitHub Issues](https://img.shields.io/github/issues/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/issues)
-[![GitHub PR](https://img.shields.io/github/issues-pr/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/pulls)
-[![Licence](https://img.shields.io/github/license/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/blob/master/LICENSE)
+![Build Status](https://github.com/unckan/pySIUdata/actions/workflows/test.yml/badge.svg)
+[![GitHub All Releases](https://img.shields.io/github/downloads/unckan/pySIUdata/total)](https://github.com/unckan/pySIUdata/releases)
+[![GitHub Issues](https://img.shields.io/github/issues/unckan/pySIUdata)](https://github.com/unckan/pySIUdata/issues)
+[![GitHub PR](https://img.shields.io/github/issues-pr/unckan/pySIUdata)](https://github.com/unckan/pySIUdata/pulls)
+[![Licence](https://img.shields.io/github/license/unckan/pySIUdata)](https://github.com/unckan/pySIUdata/blob/master/LICENSE)
 [![PyPi version](https://img.shields.io/pypi/v/siu-data)](https://pypi.org/project/siu-data/)
 [![Pypi py version](https://img.shields.io/pypi/pyversions/siu-data)](https://pypi.org/project/siu-data/)
-[![Last Commit](https://img.shields.io/github/last-commit/avdata99/pySIUdata)](https://github.com/avdata99/pySIUdata/commits/master)
+[![Last Commit](https://img.shields.io/github/last-commit/unckan/pySIUdata)](https://github.com/unckan/pySIUdata/commits/master)
 
 # py SIU data
 Obtener datos de sistemas SIU
